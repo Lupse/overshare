@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class SignupPage extends StatelessWidget {
   const SignupPage({super.key});
@@ -8,6 +8,11 @@ class SignupPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      onHorizontalDragUpdate: (details) {
+        if (details.primaryDelta! > 10) {
+          Navigator.pushNamed(context, '/login');
+        }
+      },
       onTap: () {
         var f = FocusScope.of(context);
         if (!f.hasPrimaryFocus) {
@@ -29,7 +34,7 @@ Widget _landing(BuildContext context) {
         children: [
           // Title
           Padding(
-            padding: const EdgeInsets.fromLTRB(0, 30, 0, 0),
+            padding: const EdgeInsets.fromLTRB(0, 60, 0, 0),
             child: Text("OVERSHARE",
                 style: GoogleFonts.josefinSans(
                   textStyle: const TextStyle(
@@ -41,24 +46,18 @@ Widget _landing(BuildContext context) {
 
           // Image
           SizedBox(
-            width: 500,
+            width: 250,
             height: 325,
             child: SvgPicture.asset(
-              "assets/landingHeader.svg",
-              colorFilter: ColorFilter.mode(
-                Theme.of(context).brightness == Brightness.light
-                    ? Colors.black
-                    : Colors.white,
-                BlendMode.srcIn,
-              ),
+              "assets/signup.svg",
             ),
           ),
 
           // Content
           Container(
-              padding: const EdgeInsets.fromLTRB(30, 10, 30, 30),
+              padding: const EdgeInsets.fromLTRB(30, 0, 30, 30),
               width: 500,
-              height: 411,
+              height: 467,
               child: SizedBox(
                 width: double.infinity,
                 child: Column(
@@ -100,6 +99,16 @@ Widget _landing(BuildContext context) {
                       ),
                     ),
 
+                    const Padding(
+                      padding: EdgeInsets.symmetric(vertical: 15),
+                      child: TextField(
+                        decoration: InputDecoration(
+                            border: OutlineInputBorder(),
+                            hintText: "Konfirmasi Password"),
+                        obscureText: true,
+                      ),
+                    ),
+
                     SizedBox(
                         width: double.infinity,
                         child: ElevatedButton(
@@ -108,7 +117,7 @@ Widget _landing(BuildContext context) {
                                 backgroundColor: WidgetStatePropertyAll(
                                     Color.fromARGB(255, 238, 238, 238))),
                             child: Text(
-                              "Login",
+                              "Signup",
                               style: GoogleFonts.josefinSans(
                                 textStyle: const TextStyle(
                                     fontSize: 16,
@@ -120,7 +129,9 @@ Widget _landing(BuildContext context) {
                     SizedBox(
                         width: double.infinity,
                         child: TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.pushNamed(context, '/landing');
+                            },
                             style: const ButtonStyle(
                                 overlayColor:
                                     WidgetStatePropertyAll(Colors.transparent),
@@ -128,12 +139,12 @@ Widget _landing(BuildContext context) {
                                 backgroundColor:
                                     WidgetStatePropertyAll(Colors.transparent)),
                             child: Text(
-                              "Sign Up",
+                              "Login",
                               style: GoogleFonts.josefinSans(
                                 textStyle: const TextStyle(
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.black),
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             )))
                   ],

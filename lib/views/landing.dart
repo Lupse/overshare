@@ -8,6 +8,11 @@ class LandingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      onHorizontalDragUpdate: (details) {
+        if (details.primaryDelta! > 10) {
+          Navigator.pushNamed(context, '/signup');
+        }
+      },
       onTap: () {
         var f = FocusScope.of(context);
         if (!f.hasPrimaryFocus) {
@@ -29,7 +34,7 @@ Widget _landing(BuildContext context) {
         children: [
           // Title
           Padding(
-            padding: const EdgeInsets.fromLTRB(0, 30, 0, 0),
+            padding: const EdgeInsets.fromLTRB(0, 60, 0, 0),
             child: Text("OVERSHARE",
                 style: GoogleFonts.josefinSans(
                   textStyle: const TextStyle(
@@ -41,17 +46,9 @@ Widget _landing(BuildContext context) {
 
           // Image
           SizedBox(
-            width: 500,
+            width: 300,
             height: 325,
-            child: SvgPicture.asset(
-              "assets/landingHeader.svg",
-              colorFilter: ColorFilter.mode(
-                Theme.of(context).brightness == Brightness.light
-                    ? Colors.black
-                    : Colors.white,
-                BlendMode.srcIn,
-              ),
-            ),
+            child: SvgPicture.asset("assets/landingHeader.svg"),
           ),
 
           // Content
@@ -133,9 +130,9 @@ Widget _landing(BuildContext context) {
                               "Sign Up",
                               style: GoogleFonts.josefinSans(
                                 textStyle: const TextStyle(
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.black),
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             )))
                   ],

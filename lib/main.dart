@@ -19,10 +19,10 @@ class MainApp extends StatelessWidget {
     MaterialTheme theme = MaterialTheme(textTheme);
     return MaterialApp(
       // Routing
-      initialRoute: "/landing.dart",
+      initialRoute: "/landing",
       routes: {
-        '/landing.dart': (context) => const LandingPage(),
-        '/signup.dart': (context) => const SignupPage()
+        '/landing': (context) => const LandingPage(),
+        '/signup': (context) => const SignupPage()
       },
 
       title: 'Overshare',
