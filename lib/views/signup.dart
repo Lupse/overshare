@@ -57,7 +57,7 @@ Widget _landing(BuildContext context) {
           Container(
               padding: const EdgeInsets.fromLTRB(30, 0, 30, 30),
               width: 500,
-              height: 467,
+              height: 471,
               child: SizedBox(
                 width: double.infinity,
                 child: Column(
