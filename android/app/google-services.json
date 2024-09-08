@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "331791793067",
+    "project_id": "overshare-database",
+    "storage_bucket": "overshare-database.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:331791793067:android:9632aa08f3c74cc63a70ee",
+        "android_client_info": {
+          "package_name": "com.example.overshare"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDEqcgk7Z7GGPLuhaYfYZOIeNsBfvGq7Xo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
