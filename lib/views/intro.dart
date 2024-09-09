@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:overshare/views/tugas1.dart';
@@ -389,7 +390,13 @@ class Intro extends StatelessWidget {
                 child: SizedBox(
                   width: 300,
                   child: OutlinedButton(
-                    onPressed: () {},
+                    onPressed: () async {
+                      await FirebaseAuth.instance.signOut();
+                      //back to login
+                      Navigator.pushNamedAndRemoveUntil(
+                          // ignore: use_build_context_synchronously
+                          context, '/landing', (route) => false);
+                    },
                     style: OutlinedButton.styleFrom(
                         side: const BorderSide(
                             width: 1.5,

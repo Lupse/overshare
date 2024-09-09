@@ -49,6 +49,27 @@ class _SignupPageState extends State<SignupPage> {
     super.dispose();
   }
 
+  //function to show the dialog
+  void _showAccountCreatedDialog(BuildContext context) {
+    showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+              title: const Text("Account Created"),
+              content: const Text("Your Account Has Been Succesfully Created!"),
+              actions: [
+                TextButton(
+                    onPressed: () {
+                      //control dialog
+                      Navigator.of(context).pop();
+
+                      //navigate to login page
+                      Navigator.pushNamed(context, '/landing');
+                    },
+                    child: const Text("OK"))
+              ],
+            ));
+  }
+
   @override
   Widget build(BuildContext context) {
     if (!_isFirebaseInitialized) {
@@ -187,8 +208,9 @@ class _SignupPageState extends State<SignupPage> {
                                             .createUserWithEmailAndPassword(
                                                 email: username,
                                                 password: password);
-                                        Navigator.pushNamed(
-                                            context, '/landing');
+
+                                        //show dialog account created
+                                        _showAccountCreatedDialog(context);
                                       } on FirebaseAuthException catch (e) {
                                         if (e.code == "email-already-in-use") {
                                           ScaffoldMessenger.of(context)
