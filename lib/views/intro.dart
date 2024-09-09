@@ -245,8 +245,7 @@ class Intro extends StatelessWidget {
                               children: <Widget>[
                                 // TUGAS 1
                                 Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 4.0),
+                                  padding: const EdgeInsets.only(left: 10.0),
                                   child: TextButton(
                                     style: const ButtonStyle(
                                         overlayColor: WidgetStatePropertyAll(
@@ -268,8 +267,8 @@ class Intro extends StatelessWidget {
                                             child: Image(
                                               image: AssetImage(
                                                   "assets/tugas1.jpeg"),
-                                              width: 150,
-                                              height: 100,
+                                              width: 200,
+                                              height: 150,
                                               fit: BoxFit.cover,
                                             ),
                                           ),
@@ -294,8 +293,8 @@ class Intro extends StatelessWidget {
 
                                 // TUGAS 2
                                 Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 4.0),
+                                  padding:
+                                      const EdgeInsets.symmetric(horizontal: 0),
                                   child: TextButton(
                                     style: const ButtonStyle(
                                         overlayColor: WidgetStatePropertyAll(
@@ -311,8 +310,8 @@ class Intro extends StatelessWidget {
                                             child: Image(
                                               image: AssetImage(
                                                   "assets/dummy.png"),
-                                              width: 150,
-                                              height: 100,
+                                              width: 200,
+                                              height: 150,
                                               fit: BoxFit.cover,
                                             ),
                                           ),
@@ -337,8 +336,7 @@ class Intro extends StatelessWidget {
 
                                 // TUGAS 3
                                 Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 4.0),
+                                  padding: const EdgeInsets.only(right: 10),
                                   child: TextButton(
                                     style: const ButtonStyle(
                                         overlayColor: WidgetStatePropertyAll(
@@ -354,8 +352,8 @@ class Intro extends StatelessWidget {
                                             child: Image(
                                               image: AssetImage(
                                                   "assets/dummy.png"),
-                                              width: 150,
-                                              height: 100,
+                                              width: 200,
+                                              height: 150,
                                               fit: BoxFit.cover,
                                             ),
                                           ),
