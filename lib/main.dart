@@ -7,6 +7,7 @@ import 'package:overshare/util.dart';
 import 'package:overshare/views/intro.dart';
 import 'package:overshare/views/landing.dart';
 import 'package:overshare/views/signup.dart';
+import 'package:overshare/views/intro.dart';
 
 void main() {
   runApp(const MainApp());
@@ -23,7 +24,7 @@ class MainApp extends StatelessWidget {
     MaterialTheme theme = MaterialTheme(textTheme);
     return MaterialApp(
       // Routing
-      initialRoute: "/landing",
+      initialRoute: "/intro",
       routes: {
         '/landing': (context) => const LandingPage(),
         '/signup': (context) => const SignupPage(),
