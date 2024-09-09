@@ -7,7 +7,6 @@ import 'package:overshare/util.dart';
 import 'package:overshare/views/intro.dart';
 import 'package:overshare/views/landing.dart';
 import 'package:overshare/views/signup.dart';
-import 'package:overshare/views/intro.dart';
 
 void main() {
   runApp(const MainApp());
