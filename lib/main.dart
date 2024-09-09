@@ -7,6 +7,7 @@ import 'package:overshare/util.dart';
 import 'package:overshare/views/intro.dart';
 import 'package:overshare/views/landing.dart';
 import 'package:overshare/views/signup.dart';
+import 'package:overshare/views/tugas1.dart';
 
 void main() {
   runApp(const MainApp());
@@ -26,7 +27,8 @@ class MainApp extends StatelessWidget {
       routes: {
         '/landing': (context) => const LandingPage(),
         '/signup': (context) => const SignupPage(),
-        '/intro': (context) => const Intro()
+        '/intro': (context) => const Intro(),
+        '/tugas1': (context) => const Tugas1()
       },
 
       title: 'Overshare',

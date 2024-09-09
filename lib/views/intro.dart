@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:overshare/views/tugas1.dart';
 
 class Intro extends StatelessWidget {
   const Intro({super.key});
@@ -244,36 +245,48 @@ class Intro extends StatelessWidget {
                                 // TUGAS 1
                                 Padding(
                                   padding: const EdgeInsets.symmetric(
-                                      horizontal: 10.0),
-                                  child: Container(
-                                    decoration: const BoxDecoration(
-                                        color: Colors.black),
-                                    child: Column(
-                                      children: [
-                                        const Padding(
-                                          padding: EdgeInsets.all(3.0),
-                                          child: Image(
-                                            image:
-                                                AssetImage("assets/dummy.png"),
-                                            width: 150,
-                                            height: 100,
-                                            fit: BoxFit.cover,
-                                          ),
-                                        ),
-                                        Expanded(
-                                            child: Center(
-                                          child: Container(
-                                            decoration: const BoxDecoration(
-                                                color: Colors.black),
-                                            child: Text(
-                                              "TUGAS 1",
-                                              style: GoogleFonts.josefinSans(
-                                                  color: Colors.white,
-                                                  fontSize: 18),
+                                      horizontal: 4.0),
+                                  child: TextButton(
+                                    style: const ButtonStyle(
+                                        overlayColor: WidgetStatePropertyAll(
+                                            Colors.transparent)),
+                                    onPressed: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  const Tugas1()));
+                                    },
+                                    child: Container(
+                                      decoration: const BoxDecoration(
+                                          color: Colors.black),
+                                      child: Column(
+                                        children: [
+                                          const Padding(
+                                            padding: EdgeInsets.all(3.0),
+                                            child: Image(
+                                              image: AssetImage(
+                                                  "assets/dummy.png"),
+                                              width: 150,
+                                              height: 100,
+                                              fit: BoxFit.cover,
                                             ),
                                           ),
-                                        )),
-                                      ],
+                                          Expanded(
+                                              child: Center(
+                                            child: Container(
+                                              decoration: const BoxDecoration(
+                                                  color: Colors.black),
+                                              child: Text(
+                                                "TUGAS 1",
+                                                style: GoogleFonts.josefinSans(
+                                                    color: Colors.white,
+                                                    fontSize: 18),
+                                              ),
+                                            ),
+                                          )),
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -281,36 +294,42 @@ class Intro extends StatelessWidget {
                                 // TUGAS 2
                                 Padding(
                                   padding: const EdgeInsets.symmetric(
-                                      horizontal: 10.0),
-                                  child: Container(
-                                    decoration: const BoxDecoration(
-                                        color: Colors.black),
-                                    child: Column(
-                                      children: [
-                                        const Padding(
-                                          padding: EdgeInsets.all(3.0),
-                                          child: Image(
-                                            image:
-                                                AssetImage("assets/dummy.png"),
-                                            width: 150,
-                                            height: 100,
-                                            fit: BoxFit.cover,
-                                          ),
-                                        ),
-                                        Expanded(
-                                            child: Center(
-                                          child: Container(
-                                            decoration: const BoxDecoration(
-                                                color: Colors.black),
-                                            child: Text(
-                                              "TUGAS 2",
-                                              style: GoogleFonts.josefinSans(
-                                                  color: Colors.white,
-                                                  fontSize: 18),
+                                      horizontal: 4.0),
+                                  child: TextButton(
+                                    style: const ButtonStyle(
+                                        overlayColor: WidgetStatePropertyAll(
+                                            Colors.transparent)),
+                                    onPressed: () {},
+                                    child: Container(
+                                      decoration: const BoxDecoration(
+                                          color: Colors.black),
+                                      child: Column(
+                                        children: [
+                                          const Padding(
+                                            padding: EdgeInsets.all(3.0),
+                                            child: Image(
+                                              image: AssetImage(
+                                                  "assets/dummy.png"),
+                                              width: 150,
+                                              height: 100,
+                                              fit: BoxFit.cover,
                                             ),
                                           ),
-                                        )),
-                                      ],
+                                          Expanded(
+                                              child: Center(
+                                            child: Container(
+                                              decoration: const BoxDecoration(
+                                                  color: Colors.black),
+                                              child: Text(
+                                                "TUGAS 2",
+                                                style: GoogleFonts.josefinSans(
+                                                    color: Colors.white,
+                                                    fontSize: 18),
+                                              ),
+                                            ),
+                                          )),
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -318,36 +337,42 @@ class Intro extends StatelessWidget {
                                 // TUGAS 3
                                 Padding(
                                   padding: const EdgeInsets.symmetric(
-                                      horizontal: 10.0),
-                                  child: Container(
-                                    decoration: const BoxDecoration(
-                                        color: Colors.black),
-                                    child: Column(
-                                      children: [
-                                        const Padding(
-                                          padding: EdgeInsets.all(3.0),
-                                          child: Image(
-                                            image:
-                                                AssetImage("assets/dummy.png"),
-                                            width: 150,
-                                            height: 100,
-                                            fit: BoxFit.cover,
-                                          ),
-                                        ),
-                                        Expanded(
-                                            child: Center(
-                                          child: Container(
-                                            decoration: const BoxDecoration(
-                                                color: Colors.black),
-                                            child: Text(
-                                              "TUGAS 3",
-                                              style: GoogleFonts.josefinSans(
-                                                  color: Colors.white,
-                                                  fontSize: 18),
+                                      horizontal: 4.0),
+                                  child: TextButton(
+                                    style: const ButtonStyle(
+                                        overlayColor: WidgetStatePropertyAll(
+                                            Colors.transparent)),
+                                    onPressed: () {},
+                                    child: Container(
+                                      decoration: const BoxDecoration(
+                                          color: Colors.black),
+                                      child: Column(
+                                        children: [
+                                          const Padding(
+                                            padding: EdgeInsets.all(3.0),
+                                            child: Image(
+                                              image: AssetImage(
+                                                  "assets/dummy.png"),
+                                              width: 150,
+                                              height: 100,
+                                              fit: BoxFit.cover,
                                             ),
                                           ),
-                                        )),
-                                      ],
+                                          Expanded(
+                                              child: Center(
+                                            child: Container(
+                                              decoration: const BoxDecoration(
+                                                  color: Colors.black),
+                                              child: Text(
+                                                "TUGAS 3",
+                                                style: GoogleFonts.josefinSans(
+                                                    color: Colors.white,
+                                                    fontSize: 18),
+                                              ),
+                                            ),
+                                          )),
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -369,10 +394,6 @@ class Intro extends StatelessWidget {
                         side: const BorderSide(
                             width: 1.5,
                             color: Color.fromARGB(255, 255, 70, 70)),
-                        shape: const RoundedRectangleBorder(
-                          borderRadius:
-                              BorderRadius.zero, // Menghilangkan sudut membulat
-                        ),
                         backgroundColor: Colors.black),
                     child: const Text(
                       "LOGOUT",
