@@ -104,15 +104,15 @@ class _SignupPageState extends State<SignupPage> {
                                         )),
                                   ),
 
-                                  Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        vertical: 15),
-                                    child: TextField(
-                                        controller: _username,
-                                        decoration: const InputDecoration(
-                                            border: OutlineInputBorder(),
-                                            hintText: "Username")),
-                                  ),
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 15),
+                                  child: TextField(
+                                      controller: _username,
+                                      decoration: const InputDecoration(
+                                          border: OutlineInputBorder(),
+                                          hintText: "Email")),
+                                ),
 
                                   Padding(
                                     padding: const EdgeInsets.symmetric(

@@ -109,7 +109,7 @@ class _LandingPageState extends State<LandingPage> {
                                           controller: _username,
                                           decoration: const InputDecoration(
                                               border: OutlineInputBorder(),
-                                              hintText: "Username")),
+                                              hintText: "Email")),
                                     ),
 
                                     Padding(
