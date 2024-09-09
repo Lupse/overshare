@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:overshare/theme.dart';
 import 'package:overshare/util.dart';
+import 'package:overshare/views/intro.dart';
 import 'package:overshare/views/landing.dart';
 import 'package:overshare/views/signup.dart';
 
@@ -22,7 +23,8 @@ class MainApp extends StatelessWidget {
       initialRoute: "/landing",
       routes: {
         '/landing': (context) => const LandingPage(),
-        '/signup': (context) => const SignupPage()
+        '/signup': (context) => const SignupPage(),
+        '/intro': (context) => const Intro()
       },
 
       title: 'Overshare',
