@@ -22,8 +22,14 @@ class _Tugas1State extends State<Tugas1> {
         } else {
           result = 'Bilangan $values adalah Ganjil';
         }
+      } else if (values < 0) {
+        if (values % -2 == 0) {
+          result = 'Bilangan $values adalah Genap';
+        } else {
+          result = 'Bilangan $values adalah Ganjil';
+        }
       } else {
-        result = 'Masukkan Bilangan Terlebih Dahulu';
+        result = 'Masukkan Angka Terlebih Dahulu';
       }
     });
   }
@@ -51,91 +57,94 @@ class _Tugas1State extends State<Tugas1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Container(
-          decoration: const BoxDecoration(color: Colors.white),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text("Menentukan Bilangan Ganjil/Genap",
-                  style: GoogleFonts.josefinSans(
-                      fontSize: 20, color: Colors.black)),
-              const SizedBox(height: 20),
+      body: GestureDetector(
+        onTap: FocusScope.of(context).unfocus,
+        child: Center(
+          child: Container(
+            decoration: const BoxDecoration(color: Colors.white),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text("Menentukan Bilangan Ganjil/Genap",
+                    style: GoogleFonts.josefinSans(
+                        fontSize: 20, color: Colors.black)),
+                const SizedBox(height: 20),
 
-              // Input field
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  IconButton(
-                      onPressed: () {
-                        _kurang();
-                      },
-                      icon: const Icon(Icons.remove)),
-                  SizedBox(
-                    width: 150,
-                    child: TextField(
-                      textAlign: TextAlign.center,
-                      controller: myController,
-                      keyboardType: TextInputType.number,
-                      decoration: const InputDecoration(
-                        hintText: 'Masukkan Angka',
+                // Input field
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    IconButton(
+                        onPressed: () {
+                          _kurang();
+                        },
+                        icon: const Icon(Icons.remove)),
+                    SizedBox(
+                      width: 150,
+                      child: TextField(
+                        textAlign: TextAlign.center,
+                        controller: myController,
+                        keyboardType: TextInputType.number,
+                        decoration: const InputDecoration(
+                          hintText: 'Masukkan Angka',
+                        ),
+                      ),
+                    ),
+                    IconButton(
+                        onPressed: () {
+                          _tambah();
+                        },
+                        icon: const Icon(Icons.add)),
+                  ],
+                ),
+                const SizedBox(height: 20),
+
+                Padding(
+                  padding: const EdgeInsets.only(top: 20.0, bottom: 20),
+                  child: Text(
+                    result,
+                    style: GoogleFonts.josefinSans(
+                        fontSize: 18, color: Colors.black),
+                  ),
+                ),
+
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 10.0),
+                  child: SizedBox(
+                    width: 300,
+                    child: OutlinedButton(
+                      onPressed: check,
+                      child: const Text(
+                        'Cek',
+                        style: TextStyle(color: Colors.black),
                       ),
                     ),
                   ),
-                  IconButton(
+                ),
+
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 10.0),
+                  child: SizedBox(
+                    width: 300,
+                    child: OutlinedButton(
                       onPressed: () {
-                        _tambah();
+                        Navigator.pop(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Tugas1()));
                       },
-                      icon: const Icon(Icons.add)),
-                ],
-              ),
-              const SizedBox(height: 20),
-
-              Padding(
-                padding: const EdgeInsets.only(top: 20.0, bottom: 20),
-                child: Text(
-                  result,
-                  style: GoogleFonts.josefinSans(
-                      fontSize: 18, color: Colors.black),
-                ),
-              ),
-
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10.0),
-                child: SizedBox(
-                  width: 300,
-                  child: OutlinedButton(
-                    onPressed: check,
-                    child: const Text(
-                      'Cek',
-                      style: TextStyle(color: Colors.black),
+                      style: OutlinedButton.styleFrom(
+                          backgroundColor:
+                              const Color.fromARGB(255, 255, 98, 98)),
+                      child: const Text(
+                        'Kembali',
+                        style: TextStyle(color: Colors.black),
+                      ),
                     ),
                   ),
                 ),
-              ),
-
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10.0),
-                child: SizedBox(
-                  width: 300,
-                  child: OutlinedButton(
-                    onPressed: () {
-                      Navigator.pop(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const Tugas1()));
-                    },
-                    style: OutlinedButton.styleFrom(
-                        backgroundColor:
-                            const Color.fromARGB(255, 255, 98, 98)),
-                    child: const Text(
-                      'Kembali',
-                      style: TextStyle(color: Colors.black),
-                    ),
-                  ),
-                ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
