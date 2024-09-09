@@ -23,7 +23,6 @@ class MainApp extends StatelessWidget {
     MaterialTheme theme = MaterialTheme(textTheme);
     return MaterialApp(
       // Routing
-      initialRoute: "/intro",
       routes: {
         '/landing': (context) => const LandingPage(),
         '/signup': (context) => const SignupPage(),
@@ -44,9 +43,6 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Home Page"),
-      ),
       body: FutureBuilder(
         future: Firebase.initializeApp(
           options: DefaultFirebaseOptions.currentPlatform,
@@ -60,7 +56,7 @@ class HomePage extends StatelessWidget {
               } else {
                 const Text("Not Verified");
               }
-              return const Text("Done");
+              return const LandingPage();
 
             default:
               return const Text("Loading...");
