@@ -137,8 +137,10 @@ class _LandingPageState extends State<LandingPage> {
                                         width: double.infinity,
                                         child: ElevatedButton(
                                             onPressed: () async {
-                                              final email = _username.text;
-                                              final password = _password.text;
+                                              final email =
+                                                  _username.text.trim();
+                                              final password =
+                                                  _password.text.trim();
 
                                               try {
                                                 //attempt login
@@ -158,11 +160,7 @@ class _LandingPageState extends State<LandingPage> {
                                                     'wrong-password') {
                                                   const Text("Wrong Password");
                                                 } else {
-                                                  ScaffoldMessenger.of(context)
-                                                      .showSnackBar(SnackBar(
-                                                          content: SnackBar(
-                                                              content: Text(
-                                                                  "Error: ${e}"))));
+                                                  const Text("Error 101");
                                                 }
                                               }
                                             },
