@@ -281,7 +281,9 @@ class Intro extends StatelessWidget {
                                                 "TUGAS 1",
                                                 style: GoogleFonts.josefinSans(
                                                     color: Colors.white,
-                                                    fontSize: 18),
+                                                    fontSize: 18,
+                                                    fontWeight:
+                                                        FontWeight.bold),
                                               ),
                                             ),
                                           )),
@@ -324,7 +326,9 @@ class Intro extends StatelessWidget {
                                                 "TUGAS 2",
                                                 style: GoogleFonts.josefinSans(
                                                     color: Colors.white,
-                                                    fontSize: 18),
+                                                    fontSize: 18,
+                                                    fontWeight:
+                                                        FontWeight.bold),
                                               ),
                                             ),
                                           )),
@@ -366,7 +370,9 @@ class Intro extends StatelessWidget {
                                                 "TUGAS 3",
                                                 style: GoogleFonts.josefinSans(
                                                     color: Colors.white,
-                                                    fontSize: 18),
+                                                    fontSize: 18,
+                                                    fontWeight:
+                                                        FontWeight.bold),
                                               ),
                                             ),
                                           )),
