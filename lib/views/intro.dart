@@ -197,78 +197,167 @@ class Intro extends StatelessWidget {
               ),
 
               // CONTENT DIVIDER
-              const Padding(
-                padding: EdgeInsets.only(top: 60, bottom: 5),
-                child: Divider(
-                  endIndent: 100,
-                  color: Colors.white,
-                ),
-              ),
               Padding(
-                padding: const EdgeInsets.only(left: 10.0),
-                child: SizedBox(
-                  width: double.maxFinite,
-                  child: Text("ASSIGNMENT \nLISTS",
-                      style: GoogleFonts.josefinSans(
-                        textStyle: const TextStyle(
-                            fontSize: 36,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white),
-                      )),
-                ),
-              ),
-              const Padding(
-                padding: EdgeInsets.only(bottom: 5),
-                child: Divider(
-                  endIndent: 200,
-                  color: Colors.white,
-                ),
-              ),
-
-              // TUGAS 1
-              Padding(
-                padding: const EdgeInsets.only(top: 40.0),
-                child: SizedBox(
-                  width: 300,
-                  child: OutlinedButton(
-                    onPressed: () {},
-                    style: OutlinedButton.styleFrom(
-                        side: const BorderSide(width: 1.5, color: Colors.white),
-                        shape: const RoundedRectangleBorder(
-                          borderRadius:
-                              BorderRadius.zero, // Menghilangkan sudut membulat
+                padding: const EdgeInsets.only(top: 40.0, bottom: 20),
+                child: Container(
+                  decoration: const BoxDecoration(color: Colors.white),
+                  child: Column(
+                    children: [
+                      const Padding(
+                        padding: EdgeInsets.only(top: 20, bottom: 5),
+                        child: Divider(
+                          thickness: 2,
+                          endIndent: 100,
+                          color: Colors.black,
                         ),
-                        backgroundColor: Colors.black),
-                    child: const Text(
-                      "TUGAS 1",
-                      style: TextStyle(color: Colors.white),
-                    ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 10.0),
+                        child: SizedBox(
+                          width: double.maxFinite,
+                          child: Text("ASSIGNMENT \nLISTS",
+                              style: GoogleFonts.josefinSans(
+                                textStyle: const TextStyle(
+                                    fontSize: 36,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black),
+                              )),
+                        ),
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.only(bottom: 5),
+                        child: Divider(
+                          thickness: 2,
+                          endIndent: 200,
+                          color: Colors.black,
+                        ),
+                      ),
+
+                      // TUGAS 1
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 30.0, top: 18),
+                        child: SizedBox(
+                          height: 200,
+                          child: ListView(
+                              scrollDirection: Axis.horizontal,
+                              children: <Widget>[
+                                // TUGAS 1
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 10.0),
+                                  child: Container(
+                                    decoration: const BoxDecoration(
+                                        color: Colors.black),
+                                    child: Column(
+                                      children: [
+                                        const Padding(
+                                          padding: EdgeInsets.all(3.0),
+                                          child: Image(
+                                            image:
+                                                AssetImage("assets/dummy.png"),
+                                            width: 150,
+                                            height: 100,
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                        Expanded(
+                                            child: Center(
+                                          child: Container(
+                                            decoration: const BoxDecoration(
+                                                color: Colors.black),
+                                            child: Text(
+                                              "TUGAS 1",
+                                              style: GoogleFonts.josefinSans(
+                                                  color: Colors.white,
+                                                  fontSize: 18),
+                                            ),
+                                          ),
+                                        )),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+
+                                // TUGAS 2
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 10.0),
+                                  child: Container(
+                                    decoration: const BoxDecoration(
+                                        color: Colors.black),
+                                    child: Column(
+                                      children: [
+                                        const Padding(
+                                          padding: EdgeInsets.all(3.0),
+                                          child: Image(
+                                            image:
+                                                AssetImage("assets/dummy.png"),
+                                            width: 150,
+                                            height: 100,
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                        Expanded(
+                                            child: Center(
+                                          child: Container(
+                                            decoration: const BoxDecoration(
+                                                color: Colors.black),
+                                            child: Text(
+                                              "TUGAS 2",
+                                              style: GoogleFonts.josefinSans(
+                                                  color: Colors.white,
+                                                  fontSize: 18),
+                                            ),
+                                          ),
+                                        )),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+
+                                // TUGAS 3
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 10.0),
+                                  child: Container(
+                                    decoration: const BoxDecoration(
+                                        color: Colors.black),
+                                    child: Column(
+                                      children: [
+                                        const Padding(
+                                          padding: EdgeInsets.all(3.0),
+                                          child: Image(
+                                            image:
+                                                AssetImage("assets/dummy.png"),
+                                            width: 150,
+                                            height: 100,
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                        Expanded(
+                                            child: Center(
+                                          child: Container(
+                                            decoration: const BoxDecoration(
+                                                color: Colors.black),
+                                            child: Text(
+                                              "TUGAS 3",
+                                              style: GoogleFonts.josefinSans(
+                                                  color: Colors.white,
+                                                  fontSize: 18),
+                                            ),
+                                          ),
+                                        )),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ]),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),
-
-              // TUGAS 2
-              Padding(
-                padding: const EdgeInsets.only(top: 24.0),
-                child: SizedBox(
-                  width: 300,
-                  child: OutlinedButton(
-                    onPressed: () {},
-                    style: OutlinedButton.styleFrom(
-                        side: const BorderSide(width: 1.5, color: Colors.white),
-                        shape: const RoundedRectangleBorder(
-                          borderRadius:
-                              BorderRadius.zero, // Menghilangkan sudut membulat
-                        ),
-                        backgroundColor: Colors.black),
-                    child: const Text(
-                      "TUGAS 2",
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ),
-                ),
-              ),
-
               // LOGOUT
               Padding(
                 padding: const EdgeInsets.only(top: 24.0, bottom: 40),
