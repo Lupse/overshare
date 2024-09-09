@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:overshare/theme.dart';
 import 'package:overshare/util.dart';
+import 'package:overshare/views/intro.dart';
 import 'package:overshare/views/landing.dart';
 import 'package:overshare/views/signup.dart';
 import 'package:overshare/views/intro.dart';

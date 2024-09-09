@@ -1,157 +1,232 @@
+// ignore_for_file: use_build_context_synchronously
+
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:overshare/firebase_options.dart';
 
-class SignupPage extends StatelessWidget {
+class SignupPage extends StatefulWidget {
   const SignupPage({super.key});
+
+  @override
+  State<SignupPage> createState() => _SignupPageState();
+}
+
+class _SignupPageState extends State<SignupPage> {
+  late TextEditingController _username;
+  late TextEditingController _password;
+  late TextEditingController _confirmPassword;
+
+  @override
+  void initState() {
+    _username = TextEditingController();
+    _password = TextEditingController();
+    _confirmPassword = TextEditingController();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _username.dispose();
+    _password.dispose();
+    _confirmPassword.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onHorizontalDragUpdate: (details) {
-        if (details.primaryDelta! > 10) {
-          Navigator.pushNamed(context, '/landing');
-        }
-      },
-      onTap: () {
-        var f = FocusScope.of(context);
-        if (!f.hasPrimaryFocus) {
-          f.unfocus();
-        }
-      },
-      child: Scaffold(
-        body: _landing(context),
+        // onHorizontalDragUpdate: (details) {
+        //   if (details.primaryDelta! > 10) {
+        //     Navigator.pushNamed(context, '/landing');
+        //   }
+        // },
+        // onTap: () {
+        //   var f = FocusScope.of(context);
+        //   if (!f.hasPrimaryFocus) {
+        //     f.unfocus();
+        //   }
+        // },
+        child: FutureBuilder(
+      future: Firebase.initializeApp(
+        options: DefaultFirebaseOptions.currentPlatform,
       ),
-    );
-  }
-}
-
-Widget _landing(BuildContext context) {
-  return SizedBox(
-    width: double.infinity,
-    child: SingleChildScrollView(
-      child: Column(
-        children: [
-          // Title
-          Padding(
-            padding: const EdgeInsets.fromLTRB(0, 60, 0, 0),
-            child: Text("OVERSHARE",
-                style: GoogleFonts.josefinSans(
-                  textStyle: const TextStyle(
-                    fontSize: 48,
-                    fontWeight: FontWeight.bold,
-                  ),
-                )),
-          ),
-
-          // Image
-          SizedBox(
-            width: 250,
-            height: 325,
-            child: SvgPicture.asset(
-              "assets/signup.svg",
-            ),
-          ),
-
-          // Content
-          Container(
-              padding: const EdgeInsets.fromLTRB(30, 0, 30, 30),
-              width: 500,
-              height: 471,
-              child: SizedBox(
+      builder: (context, snapshot) {
+        switch (snapshot.connectionState) {
+          case ConnectionState.done:
+            return Scaffold(
+              body: SizedBox(
                 width: double.infinity,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    // Login Form
-                    Text("Daftar Akun",
-                        style: GoogleFonts.josefinSans(
-                          textStyle: const TextStyle(
-                            fontSize: 32,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        )),
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      // Title
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(0, 60, 0, 0),
+                        child: Text("OVERSHARE",
+                            style: GoogleFonts.josefinSans(
+                              textStyle: const TextStyle(
+                                fontSize: 48,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            )),
+                      ),
 
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 15),
-                      child: Text("Silahkan daftarkan akun terlebih dahulu.",
-                          style: GoogleFonts.josefinSans(
-                            textStyle: const TextStyle(
-                              fontSize: 18,
+                      // Image
+                      SizedBox(
+                        width: 250,
+                        height: 325,
+                        child: SvgPicture.asset(
+                          "assets/signup.svg",
+                        ),
+                      ),
+
+                      // Content
+                      Container(
+                          padding: const EdgeInsets.fromLTRB(30, 0, 30, 30),
+                          width: 500,
+                          height: 471,
+                          child: SizedBox(
+                            width: double.infinity,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                // Login Form
+                                Text("Daftar Akun",
+                                    style: GoogleFonts.josefinSans(
+                                      textStyle: const TextStyle(
+                                        fontSize: 32,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    )),
+
+                                Padding(
+                                  padding: const EdgeInsets.only(bottom: 15),
+                                  child: Text(
+                                      "Silahkan daftarkan akun terlebih dahulu.",
+                                      style: GoogleFonts.josefinSans(
+                                        textStyle: const TextStyle(
+                                          fontSize: 18,
+                                        ),
+                                      )),
+                                ),
+
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 15),
+                                  child: TextField(
+                                      controller: _username,
+                                      decoration: const InputDecoration(
+                                          border: OutlineInputBorder(),
+                                          hintText: "Username")),
+                                ),
+
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 15),
+                                  child: TextField(
+                                    controller: _password,
+                                    decoration: const InputDecoration(
+                                        border: OutlineInputBorder(),
+                                        hintText: "Password"),
+                                    obscureText: true,
+                                  ),
+                                ),
+
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 15),
+                                  child: TextField(
+                                    controller: _confirmPassword,
+                                    decoration: const InputDecoration(
+                                        border: OutlineInputBorder(),
+                                        hintText: "Konfirmasi Password"),
+                                    obscureText: true,
+                                  ),
+                                ),
+
+                                SizedBox(
+                                    width: double.infinity,
+                                    child: ElevatedButton(
+                                        onPressed: () async {
+                                          final username = _username.text;
+                                          final password = _password.text;
+                                          final confirmPassword =
+                                              _confirmPassword.text;
+
+                                          if (password != _confirmPassword) {
+                                            ScaffoldMessenger.of(context)
+                                                .showSnackBar(const SnackBar(
+                                                    content: Text(
+                                                        "Password Doesn't Match")));
+                                            return;
+                                          }
+                                          try {
+                                            await FirebaseAuth.instance
+                                                .createUserWithEmailAndPassword(
+                                                    email: username,
+                                                    password: password);
+                                            Navigator.pushNamed(
+                                                context, '/landing');
+                                          } on Exception catch (e) {
+                                            print(e);
+                                          }
+                                        },
+                                        style: const ButtonStyle(
+                                            backgroundColor:
+                                                WidgetStatePropertyAll(
+                                                    Color.fromARGB(
+                                                        255, 238, 238, 238))),
+                                        child: Text(
+                                          "Signup",
+                                          style: GoogleFonts.josefinSans(
+                                            textStyle: const TextStyle(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.bold,
+                                                color: Colors.black),
+                                          ),
+                                        ))),
+
+                                SizedBox(
+                                    width: double.infinity,
+                                    child: TextButton(
+                                        onPressed: () {
+                                          Navigator.pushNamed(
+                                              context, '/landing');
+                                        },
+                                        style: const ButtonStyle(
+                                            overlayColor:
+                                                WidgetStatePropertyAll(
+                                                    Colors.transparent),
+                                            splashFactory:
+                                                NoSplash.splashFactory,
+                                            backgroundColor:
+                                                WidgetStatePropertyAll(
+                                                    Colors.transparent)),
+                                        child: Text(
+                                          "Login",
+                                          style: GoogleFonts.josefinSans(
+                                            textStyle: const TextStyle(
+                                              fontSize: 14,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                        )))
+                              ],
                             ),
                           )),
-                    ),
-
-                    const Padding(
-                      padding: EdgeInsets.symmetric(vertical: 15),
-                      child: TextField(
-                          decoration: InputDecoration(
-                              border: OutlineInputBorder(),
-                              hintText: "Username")),
-                    ),
-
-                    const Padding(
-                      padding: EdgeInsets.symmetric(vertical: 15),
-                      child: TextField(
-                        decoration: InputDecoration(
-                            border: OutlineInputBorder(), hintText: "Password"),
-                        obscureText: true,
-                      ),
-                    ),
-
-                    const Padding(
-                      padding: EdgeInsets.symmetric(vertical: 15),
-                      child: TextField(
-                        decoration: InputDecoration(
-                            border: OutlineInputBorder(),
-                            hintText: "Konfirmasi Password"),
-                        obscureText: true,
-                      ),
-                    ),
-
-                    SizedBox(
-                        width: double.infinity,
-                        child: ElevatedButton(
-                            onPressed: () {},
-                            style: const ButtonStyle(
-                                backgroundColor: WidgetStatePropertyAll(
-                                    Color.fromARGB(255, 238, 238, 238))),
-                            child: Text(
-                              "Signup",
-                              style: GoogleFonts.josefinSans(
-                                textStyle: const TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.black),
-                              ),
-                            ))),
-
-                    SizedBox(
-                        width: double.infinity,
-                        child: TextButton(
-                            onPressed: () {
-                              Navigator.pushNamed(context, '/landing');
-                            },
-                            style: const ButtonStyle(
-                                overlayColor:
-                                    WidgetStatePropertyAll(Colors.transparent),
-                                splashFactory: NoSplash.splashFactory,
-                                backgroundColor:
-                                    WidgetStatePropertyAll(Colors.transparent)),
-                            child: Text(
-                              "Login",
-                              style: GoogleFonts.josefinSans(
-                                textStyle: const TextStyle(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            )))
-                  ],
+                    ],
+                  ),
                 ),
-              )),
-        ],
-      ),
-    ),
-  );
+              ),
+            );
+
+          default:
+            return const Text("Loading");
+        }
+      },
+    ));
+  }
 }
