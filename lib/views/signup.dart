@@ -151,27 +151,39 @@ class _SignupPageState extends State<SignupPage> {
                                     width: double.infinity,
                                     child: ElevatedButton(
                                         onPressed: () async {
-                                          final username = _username.text;
-                                          final password = _password.text;
+                                          final username =
+                                              _username.text.trim();
+                                          final password =
+                                              _password.text.trim();
                                           final confirmPassword =
-                                              _confirmPassword.text;
+                                              _confirmPassword.text.trim();
 
-                                          if (password != _confirmPassword) {
+                                          if (password != confirmPassword) {
                                             ScaffoldMessenger.of(context)
-                                                .showSnackBar(const SnackBar(
-                                                    content: Text(
-                                                        "Password Doesn't Match")));
+                                                .showSnackBar(
+                                              const SnackBar(
+                                                content: Text(
+                                                    "Password Doesn't Match"),
+                                              ),
+                                            );
                                             return;
-                                          }
-                                          try {
-                                            await FirebaseAuth.instance
-                                                .createUserWithEmailAndPassword(
-                                                    email: username,
-                                                    password: password);
-                                            Navigator.pushNamed(
-                                                context, '/landing');
-                                          } on Exception catch (e) {
-                                            print(e);
+                                          } else {
+                                            try {
+                                              await FirebaseAuth.instance
+                                                  .createUserWithEmailAndPassword(
+                                                      email: username,
+                                                      password: password);
+                                              Navigator.pushNamed(
+                                                  context, '/landing');
+                                            } on FirebaseAuthException catch (e) {
+                                              if (e.code ==
+                                                  "email-already-in-use") {
+                                                ScaffoldMessenger.of(context)
+                                                    .showSnackBar(const SnackBar(
+                                                        content: Text(
+                                                            "Email Already Used")));
+                                              }
+                                            }
                                           }
                                         },
                                         style: const ButtonStyle(
