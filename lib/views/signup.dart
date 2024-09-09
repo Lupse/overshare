@@ -120,7 +120,7 @@ class _SignupPageState extends State<SignupPage> {
                                       controller: _username,
                                       decoration: const InputDecoration(
                                           border: OutlineInputBorder(),
-                                          hintText: "Username")),
+                                          hintText: "Email")),
                                 ),
 
                                 Padding(
