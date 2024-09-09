@@ -29,7 +29,6 @@ class _LandingPageState extends State<LandingPage> {
     });
   }
 
-
   @override
   void initState() {
     _username = TextEditingController();
@@ -159,26 +158,150 @@ class _LandingPageState extends State<LandingPage> {
                                     } on FirebaseAuthException catch (e) {
                                       if (e.code == 'user-not-found') {
                                         ScaffoldMessenger.of(context)
-                                            .showSnackBar(const SnackBar(
-                                                content:
-                                                    Text("User Not Found!")));
+                                            .showSnackBar(SnackBar(
+                                          content: Container(
+                                            padding: const EdgeInsets.all(16),
+                                            height: 90,
+                                            decoration: const BoxDecoration(
+                                              color: Color.fromARGB(
+                                                  255, 255, 69, 69),
+                                              borderRadius: BorderRadius.all(
+                                                  Radius.circular(20)),
+                                            ),
+                                            child: const Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    "Ooops!",
+                                                    style: TextStyle(
+                                                        fontSize: 22,
+                                                        color: Colors.white,
+                                                        fontWeight:
+                                                            FontWeight.bold),
+                                                  ),
+                                                  Text(
+                                                    "User Not Found!",
+                                                    style: TextStyle(
+                                                        fontSize: 14,
+                                                        color: Colors.white),
+                                                  )
+                                                ]),
+                                          ),
+                                          behavior: SnackBarBehavior.floating,
+                                          backgroundColor: Colors.transparent,
+                                          elevation: 0,
+                                        ));
                                       } else if (e.code ==
                                           'invalid-credential') {
                                         ScaffoldMessenger.of(context)
-                                            .showSnackBar(const SnackBar(
-                                                content:
-                                                    Text("Wrong Password!")));
+                                            .showSnackBar(SnackBar(
+                                          content: Container(
+                                            padding: const EdgeInsets.all(16),
+                                            height: 90,
+                                            decoration: const BoxDecoration(
+                                              color: Color.fromARGB(
+                                                  255, 255, 69, 69),
+                                              borderRadius: BorderRadius.all(
+                                                  Radius.circular(20)),
+                                            ),
+                                            child: const Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    "Ooops!",
+                                                    style: TextStyle(
+                                                        fontSize: 22,
+                                                        color: Colors.white,
+                                                        fontWeight:
+                                                            FontWeight.bold),
+                                                  ),
+                                                  Text(
+                                                    "Wrong Password!",
+                                                    style: TextStyle(
+                                                        fontSize: 14,
+                                                        color: Colors.white),
+                                                  )
+                                                ]),
+                                          ),
+                                          behavior: SnackBarBehavior.floating,
+                                          backgroundColor: Colors.transparent,
+                                          elevation: 0,
+                                        ));
                                       } else if (e.code == "channel-error") {
                                         ScaffoldMessenger.of(context)
-                                            .showSnackBar(const SnackBar(
-                                                content: Text(
-                                                    "Please Insert Username & Password Correctly!")));
+                                            .showSnackBar(SnackBar(
+                                          content: Container(
+                                            padding: const EdgeInsets.all(16),
+                                            height: 90,
+                                            decoration: const BoxDecoration(
+                                              color: Color.fromARGB(
+                                                  255, 255, 69, 69),
+                                              borderRadius: BorderRadius.all(
+                                                  Radius.circular(20)),
+                                            ),
+                                            child: const Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    "Ooops!",
+                                                    style: TextStyle(
+                                                        fontSize: 22,
+                                                        color: Colors.white,
+                                                        fontWeight:
+                                                            FontWeight.bold),
+                                                  ),
+                                                  Text(
+                                                    "Please Insert Email & Password Correctly!",
+                                                    style: TextStyle(
+                                                        fontSize: 14,
+                                                        color: Colors.white),
+                                                  )
+                                                ]),
+                                          ),
+                                          behavior: SnackBarBehavior.floating,
+                                          backgroundColor: Colors.transparent,
+                                          elevation: 0,
+                                        ));
                                       } else if (e.code ==
                                           "too-many-requests") {
                                         ScaffoldMessenger.of(context)
-                                            .showSnackBar(const SnackBar(
-                                                content: Text(
-                                                    "Too Many Request, Try Again Later ")));
+                                            .showSnackBar(SnackBar(
+                                          content: Container(
+                                            padding: const EdgeInsets.all(16),
+                                            height: 90,
+                                            decoration: const BoxDecoration(
+                                              color: Color.fromARGB(
+                                                  255, 255, 69, 69),
+                                              borderRadius: BorderRadius.all(
+                                                  Radius.circular(20)),
+                                            ),
+                                            child: const Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    "Ooops!",
+                                                    style: TextStyle(
+                                                        fontSize: 22,
+                                                        color: Colors.white,
+                                                        fontWeight:
+                                                            FontWeight.bold),
+                                                  ),
+                                                  Text(
+                                                    "Too Many Request, Try Again Later!",
+                                                    style: TextStyle(
+                                                        fontSize: 14,
+                                                        color: Colors.white),
+                                                  )
+                                                ]),
+                                          ),
+                                          behavior: SnackBarBehavior.floating,
+                                          backgroundColor: Colors.transparent,
+                                          elevation: 0,
+                                        ));
                                       } else {
                                         const Text("Error 101");
                                       }

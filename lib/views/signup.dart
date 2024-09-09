@@ -195,12 +195,40 @@ class _SignupPageState extends State<SignupPage> {
 
                                     if (password != confirmPassword) {
                                       ScaffoldMessenger.of(context)
-                                          .showSnackBar(
-                                        const SnackBar(
-                                          content:
-                                              Text("Password Doesn't Match"),
+                                          .showSnackBar(SnackBar(
+                                        content: Container(
+                                          padding: const EdgeInsets.all(16),
+                                          height: 90,
+                                          decoration: const BoxDecoration(
+                                            color: Color.fromARGB(
+                                                255, 255, 69, 69),
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(20)),
+                                          ),
+                                          child: const Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Text(
+                                                  "Password Doesn't Match!",
+                                                  style: TextStyle(
+                                                      fontSize: 22,
+                                                      color: Colors.white,
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                ),
+                                                Text(
+                                                  "Please Match the Password",
+                                                  style: TextStyle(
+                                                      fontSize: 14,
+                                                      color: Colors.white),
+                                                )
+                                              ]),
                                         ),
-                                      );
+                                        behavior: SnackBarBehavior.floating,
+                                        backgroundColor: Colors.transparent,
+                                        elevation: 0,
+                                      ));
                                       return;
                                     } else {
                                       try {
@@ -212,11 +240,42 @@ class _SignupPageState extends State<SignupPage> {
                                         //show dialog account created
                                         _showAccountCreatedDialog(context);
                                       } on FirebaseAuthException catch (e) {
-                                        if (e.code == "email-already-in-use") {
+                                        if (e.code == "channel-error") {
                                           ScaffoldMessenger.of(context)
-                                              .showSnackBar(const SnackBar(
-                                                  content: Text(
-                                                      "Email Already Used")));
+                                              .showSnackBar(SnackBar(
+                                            content: Container(
+                                              padding: const EdgeInsets.all(16),
+                                              height: 90,
+                                              decoration: const BoxDecoration(
+                                                color: Color.fromARGB(
+                                                    255, 255, 69, 69),
+                                                borderRadius: BorderRadius.all(
+                                                    Radius.circular(20)),
+                                              ),
+                                              child: const Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    Text(
+                                                      "Ooops!",
+                                                      style: TextStyle(
+                                                          fontSize: 22,
+                                                          color: Colors.white,
+                                                          fontWeight:
+                                                              FontWeight.bold),
+                                                    ),
+                                                    Text(
+                                                      "Please Insert Email & Password Correctly!",
+                                                      style: TextStyle(
+                                                          fontSize: 14,
+                                                          color: Colors.white),
+                                                    )
+                                                  ]),
+                                            ),
+                                            behavior: SnackBarBehavior.floating,
+                                            backgroundColor: Colors.transparent,
+                                            elevation: 0,
+                                          ));
                                         }
                                       }
                                     }
