@@ -10,7 +10,7 @@ class Tugas1 extends StatefulWidget {
 
 class _Tugas1State extends State<Tugas1> {
   int values = 0;
-  var result = '';
+  var result = 'Masukkan Bilangan Terlebih Dahulu';
   final TextEditingController myController = TextEditingController();
 
   void check() {
@@ -51,7 +51,6 @@ class _Tugas1State extends State<Tugas1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -89,19 +88,41 @@ class _Tugas1State extends State<Tugas1> {
             ),
             const SizedBox(height: 20),
 
-            SizedBox(
-              width: 300,
-              child: OutlinedButton(
-                onPressed: check,
-                child: const Text('Cek'),
+            Padding(
+              padding: const EdgeInsets.only(top: 20.0, bottom: 20),
+              child: Text(
+                result,
+                style: GoogleFonts.josefinSans(fontSize: 18),
               ),
             ),
 
-            const SizedBox(height: 20),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 10.0),
+              child: SizedBox(
+                width: 300,
+                child: OutlinedButton(
+                  onPressed: check,
+                  child: const Text('Cek'),
+                ),
+              ),
+            ),
 
-            Text(
-              result,
-              style: GoogleFonts.josefinSans(fontSize: 18),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 10.0),
+              child: SizedBox(
+                width: 300,
+                child: OutlinedButton(
+                  onPressed: () {
+                    Navigator.pop(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const Tugas1()));
+                  },
+                  style: OutlinedButton.styleFrom(
+                      backgroundColor: const Color.fromARGB(255, 255, 98, 98)),
+                  child: const Text('Kembali'),
+                ),
+              ),
             ),
           ],
         ),
