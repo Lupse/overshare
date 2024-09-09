@@ -10,7 +10,7 @@ class SignupPage extends StatelessWidget {
     return GestureDetector(
       onHorizontalDragUpdate: (details) {
         if (details.primaryDelta! > 10) {
-          Navigator.pushNamed(context, '/login');
+          Navigator.pushNamed(context, '/landing');
         }
       },
       onTap: () {

@@ -26,3 +26,6 @@ flutter:
   assets:
     - assets/landingHeader.svg
     - assets/signup.svg
+    - assets/profile.png
+    - assets/dejan.jpeg
+    - assets/luthfi.jpeg
