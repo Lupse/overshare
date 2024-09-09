@@ -61,7 +61,7 @@ class HomePage extends StatelessWidget {
               return const LandingPage();
 
             default:
-              return const Text("Loading...");
+              return const Center(child: CircularProgressIndicator());
           }
         },
       ),
