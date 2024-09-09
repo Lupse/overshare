@@ -34,27 +34,19 @@ class _LandingPageState extends State<LandingPage> {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      // onHorizontalDragUpdate: (details) {
-      //   if (details.primaryDelta! > 10) {
-      //     Navigator.pushNamed(context, '/signup');
-      //   }
-      // },
-      // onTap: () {
-      //   var f = FocusScope.of(context);
-      //   if (!f.hasPrimaryFocus) {
-      //     f.unfocus();
-      //   }
-      // },
-      child: Scaffold(
-        body: FutureBuilder(
-            future: Firebase.initializeApp(
-              options: DefaultFirebaseOptions.currentPlatform,
-            ),
-            builder: (context, snapshot) {
-              switch (snapshot.connectionState) {
-                case ConnectionState.done:
-                  return SizedBox(
+    return FutureBuilder(
+        future: Firebase.initializeApp(
+          options: DefaultFirebaseOptions.currentPlatform,
+        ),
+        builder: (context, snapshot) {
+          switch (snapshot.connectionState) {
+            case ConnectionState.done:
+              return Scaffold(
+                body: GestureDetector(
+                  onTap:
+                      //dismiss keyabord
+                      FocusScope.of(context).unfocus,
+                  child: SizedBox(
                     width: double.infinity,
                     child: SingleChildScrollView(
                       child: Column(
@@ -144,21 +136,41 @@ class _LandingPageState extends State<LandingPage> {
 
                                               try {
                                                 //attempt login
-                                                await FirebaseAuth.instance
-                                                    .signInWithEmailAndPassword(
-                                                        email: email,
-                                                        password: password);
-
+                                                final userCredential =
+                                                    await FirebaseAuth.instance
+                                                        .signInWithEmailAndPassword(
+                                                            email: email,
+                                                            password: password);
+                                                print(userCredential);
                                                 //login success
                                                 Navigator.pushNamed(
                                                     context, '/intro');
                                               } on FirebaseAuthException catch (e) {
+                                                print(e.code);
                                                 if (e.code ==
                                                     'user-not-found') {
-                                                  const Text("User Not Found");
+                                                  ScaffoldMessenger.of(context)
+                                                      .showSnackBar(const SnackBar(
+                                                          content: Text(
+                                                              "User Not Found!")));
                                                 } else if (e.code ==
-                                                    'wrong-password') {
-                                                  const Text("Wrong Password");
+                                                    'invalid-credential') {
+                                                  ScaffoldMessenger.of(context)
+                                                      .showSnackBar(const SnackBar(
+                                                          content: Text(
+                                                              "Wrong Password!")));
+                                                } else if (e.code ==
+                                                    "channel-error") {
+                                                  ScaffoldMessenger.of(context)
+                                                      .showSnackBar(const SnackBar(
+                                                          content: Text(
+                                                              "Please Insert Username & Password Correctly!")));
+                                                } else if (e.code ==
+                                                    "too-many-requests") {
+                                                  ScaffoldMessenger.of(context)
+                                                      .showSnackBar(const SnackBar(
+                                                          content: Text(
+                                                              "Too Many Request, Try Again Later ")));
                                                 } else {
                                                   const Text("Error 101");
                                                 }
@@ -211,12 +223,12 @@ class _LandingPageState extends State<LandingPage> {
                         ],
                       ),
                     ),
-                  );
-                default:
-                  return const Text("Loading");
-              }
-            }),
-      ),
-    );
+                  ),
+                ),
+              );
+            default:
+              return const Text("Loading");
+          }
+        });
   }
 }

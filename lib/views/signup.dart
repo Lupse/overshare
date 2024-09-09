@@ -37,19 +37,7 @@ class _SignupPageState extends State<SignupPage> {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-        // onHorizontalDragUpdate: (details) {
-        //   if (details.primaryDelta! > 10) {
-        //     Navigator.pushNamed(context, '/landing');
-        //   }
-        // },
-        // onTap: () {
-        //   var f = FocusScope.of(context);
-        //   if (!f.hasPrimaryFocus) {
-        //     f.unfocus();
-        //   }
-        // },
-        child: FutureBuilder(
+    return FutureBuilder(
       future: Firebase.initializeApp(
         options: DefaultFirebaseOptions.currentPlatform,
       ),
@@ -57,61 +45,64 @@ class _SignupPageState extends State<SignupPage> {
         switch (snapshot.connectionState) {
           case ConnectionState.done:
             return Scaffold(
-              body: SizedBox(
-                width: double.infinity,
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      // Title
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(0, 60, 0, 0),
-                        child: Text("OVERSHARE",
-                            style: GoogleFonts.josefinSans(
-                              textStyle: const TextStyle(
-                                fontSize: 48,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            )),
-                      ),
-
-                      // Image
-                      SizedBox(
-                        width: 250,
-                        height: 325,
-                        child: SvgPicture.asset(
-                          "assets/signup.svg",
+              body: GestureDetector(
+                onTap: //dismiss keyabord
+                    FocusScope.of(context).unfocus,
+                child: SizedBox(
+                  width: double.infinity,
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        // Title
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(0, 60, 0, 0),
+                          child: Text("OVERSHARE",
+                              style: GoogleFonts.josefinSans(
+                                textStyle: const TextStyle(
+                                  fontSize: 48,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              )),
                         ),
-                      ),
 
-                      // Content
-                      Container(
-                          padding: const EdgeInsets.fromLTRB(30, 0, 30, 30),
-                          width: 500,
-                          height: 471,
-                          child: SizedBox(
-                            width: double.infinity,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                // Login Form
-                                Text("Daftar Akun",
-                                    style: GoogleFonts.josefinSans(
-                                      textStyle: const TextStyle(
-                                        fontSize: 32,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    )),
+                        // Image
+                        SizedBox(
+                          width: 250,
+                          height: 325,
+                          child: SvgPicture.asset(
+                            "assets/signup.svg",
+                          ),
+                        ),
 
-                                Padding(
-                                  padding: const EdgeInsets.only(bottom: 15),
-                                  child: Text(
-                                      "Silahkan daftarkan akun terlebih dahulu.",
+                        // Content
+                        Container(
+                            padding: const EdgeInsets.fromLTRB(30, 0, 30, 30),
+                            width: 500,
+                            height: 471,
+                            child: SizedBox(
+                              width: double.infinity,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  // Login Form
+                                  Text("Daftar Akun",
                                       style: GoogleFonts.josefinSans(
                                         textStyle: const TextStyle(
-                                          fontSize: 18,
+                                          fontSize: 32,
+                                          fontWeight: FontWeight.bold,
                                         ),
                                       )),
-                                ),
+
+                                  Padding(
+                                    padding: const EdgeInsets.only(bottom: 15),
+                                    child: Text(
+                                        "Silahkan daftarkan akun terlebih dahulu.",
+                                        style: GoogleFonts.josefinSans(
+                                          textStyle: const TextStyle(
+                                            fontSize: 18,
+                                          ),
+                                        )),
+                                  ),
 
                                 Padding(
                                   padding:
@@ -123,113 +114,114 @@ class _SignupPageState extends State<SignupPage> {
                                           hintText: "Email")),
                                 ),
 
-                                Padding(
-                                  padding:
-                                      const EdgeInsets.symmetric(vertical: 15),
-                                  child: TextField(
-                                    controller: _password,
-                                    decoration: const InputDecoration(
-                                        border: OutlineInputBorder(),
-                                        hintText: "Password"),
-                                    obscureText: true,
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        vertical: 15),
+                                    child: TextField(
+                                      controller: _password,
+                                      decoration: const InputDecoration(
+                                          border: OutlineInputBorder(),
+                                          hintText: "Password"),
+                                      obscureText: true,
+                                    ),
                                   ),
-                                ),
 
-                                Padding(
-                                  padding:
-                                      const EdgeInsets.symmetric(vertical: 15),
-                                  child: TextField(
-                                    controller: _confirmPassword,
-                                    decoration: const InputDecoration(
-                                        border: OutlineInputBorder(),
-                                        hintText: "Konfirmasi Password"),
-                                    obscureText: true,
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        vertical: 15),
+                                    child: TextField(
+                                      controller: _confirmPassword,
+                                      decoration: const InputDecoration(
+                                          border: OutlineInputBorder(),
+                                          hintText: "Konfirmasi Password"),
+                                      obscureText: true,
+                                    ),
                                   ),
-                                ),
 
-                                SizedBox(
-                                    width: double.infinity,
-                                    child: ElevatedButton(
-                                        onPressed: () async {
-                                          final username =
-                                              _username.text.trim();
-                                          final password =
-                                              _password.text.trim();
-                                          final confirmPassword =
-                                              _confirmPassword.text.trim();
+                                  SizedBox(
+                                      width: double.infinity,
+                                      child: ElevatedButton(
+                                          onPressed: () async {
+                                            final username =
+                                                _username.text.trim();
+                                            final password =
+                                                _password.text.trim();
+                                            final confirmPassword =
+                                                _confirmPassword.text.trim();
 
-                                          if (password != confirmPassword) {
-                                            ScaffoldMessenger.of(context)
-                                                .showSnackBar(
-                                              const SnackBar(
-                                                content: Text(
-                                                    "Password Doesn't Match"),
-                                              ),
-                                            );
-                                            return;
-                                          } else {
-                                            try {
-                                              await FirebaseAuth.instance
-                                                  .createUserWithEmailAndPassword(
-                                                      email: username,
-                                                      password: password);
-                                              Navigator.pushNamed(
-                                                  context, '/landing');
-                                            } on FirebaseAuthException catch (e) {
-                                              if (e.code ==
-                                                  "email-already-in-use") {
-                                                ScaffoldMessenger.of(context)
-                                                    .showSnackBar(const SnackBar(
-                                                        content: Text(
-                                                            "Email Already Used")));
+                                            if (password != confirmPassword) {
+                                              ScaffoldMessenger.of(context)
+                                                  .showSnackBar(
+                                                const SnackBar(
+                                                  content: Text(
+                                                      "Password Doesn't Match"),
+                                                ),
+                                              );
+                                              return;
+                                            } else {
+                                              try {
+                                                await FirebaseAuth.instance
+                                                    .createUserWithEmailAndPassword(
+                                                        email: username,
+                                                        password: password);
+                                                Navigator.pushNamed(
+                                                    context, '/landing');
+                                              } on FirebaseAuthException catch (e) {
+                                                if (e.code ==
+                                                    "email-already-in-use") {
+                                                  ScaffoldMessenger.of(context)
+                                                      .showSnackBar(const SnackBar(
+                                                          content: Text(
+                                                              "Email Already Used")));
+                                                }
                                               }
                                             }
-                                          }
-                                        },
-                                        style: const ButtonStyle(
-                                            backgroundColor:
-                                                WidgetStatePropertyAll(
-                                                    Color.fromARGB(
-                                                        255, 238, 238, 238))),
-                                        child: Text(
-                                          "Signup",
-                                          style: GoogleFonts.josefinSans(
-                                            textStyle: const TextStyle(
-                                                fontSize: 16,
-                                                fontWeight: FontWeight.bold,
-                                                color: Colors.black),
-                                          ),
-                                        ))),
-
-                                SizedBox(
-                                    width: double.infinity,
-                                    child: TextButton(
-                                        onPressed: () {
-                                          Navigator.pushNamed(
-                                              context, '/landing');
-                                        },
-                                        style: const ButtonStyle(
-                                            overlayColor:
-                                                WidgetStatePropertyAll(
-                                                    Colors.transparent),
-                                            splashFactory:
-                                                NoSplash.splashFactory,
-                                            backgroundColor:
-                                                WidgetStatePropertyAll(
-                                                    Colors.transparent)),
-                                        child: Text(
-                                          "Login",
-                                          style: GoogleFonts.josefinSans(
-                                            textStyle: const TextStyle(
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.bold,
+                                          },
+                                          style: const ButtonStyle(
+                                              backgroundColor:
+                                                  WidgetStatePropertyAll(
+                                                      Color.fromARGB(
+                                                          255, 238, 238, 238))),
+                                          child: Text(
+                                            "Signup",
+                                            style: GoogleFonts.josefinSans(
+                                              textStyle: const TextStyle(
+                                                  fontSize: 16,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Colors.black),
                                             ),
-                                          ),
-                                        )))
-                              ],
-                            ),
-                          )),
-                    ],
+                                          ))),
+
+                                  SizedBox(
+                                      width: double.infinity,
+                                      child: TextButton(
+                                          onPressed: () {
+                                            Navigator.pushNamed(
+                                                context, '/landing');
+                                          },
+                                          style: const ButtonStyle(
+                                              overlayColor:
+                                                  WidgetStatePropertyAll(
+                                                      Colors.transparent),
+                                              splashFactory:
+                                                  NoSplash.splashFactory,
+                                              backgroundColor:
+                                                  WidgetStatePropertyAll(
+                                                      Colors.transparent)),
+                                          child: Text(
+                                            "Login",
+                                            style: GoogleFonts.josefinSans(
+                                              textStyle: const TextStyle(
+                                                fontSize: 14,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
+                                          )))
+                                ],
+                              ),
+                            )),
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -239,6 +231,6 @@ class _SignupPageState extends State<SignupPage> {
             return const Text("Loading");
         }
       },
-    ));
+    );
   }
 }
