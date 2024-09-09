@@ -267,7 +267,7 @@ class Intro extends StatelessWidget {
                                             padding: EdgeInsets.all(3.0),
                                             child: Image(
                                               image: AssetImage(
-                                                  "assets/dummy.png"),
+                                                  "assets/tugas1.jpeg"),
                                               width: 150,
                                               height: 100,
                                               fit: BoxFit.cover,
@@ -395,7 +395,9 @@ class Intro extends StatelessWidget {
                       //back to login
                       Navigator.pushNamedAndRemoveUntil(
                           // ignore: use_build_context_synchronously
-                          context, '/landing', (route) => false);
+                          context,
+                          '/landing',
+                          (route) => false);
                     },
                     style: OutlinedButton.styleFrom(
                         side: const BorderSide(
