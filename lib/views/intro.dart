@@ -1,7 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:overshare/views/tugas1.dart';
+import 'package:overshare/views/tugas1/ganjilgenap.dart';
+import 'package:overshare/views/tugas1/menu.dart';
 
 class Intro extends StatelessWidget {
   const Intro({super.key});
@@ -255,7 +256,7 @@ class Intro extends StatelessWidget {
                                           context,
                                           MaterialPageRoute(
                                               builder: (context) =>
-                                                  const Tugas1()));
+                                                  const MenuTugas1()));
                                     },
                                     child: Container(
                                       decoration: const BoxDecoration(

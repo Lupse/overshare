@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class Tugas1 extends StatefulWidget {
-  const Tugas1({super.key});
+class Ganjilgenap extends StatefulWidget {
+  const Ganjilgenap({super.key});
 
   @override
-  State<Tugas1> createState() => _Tugas1State();
+  State<Ganjilgenap> createState() => _GanjilgenapState();
 }
 
-class _Tugas1State extends State<Tugas1> {
+class _GanjilgenapState extends State<Ganjilgenap> {
   int values = 0;
   var result = 'Masukkan Bilangan Terlebih Dahulu';
   final TextEditingController myController = TextEditingController();
@@ -57,6 +57,7 @@ class _Tugas1State extends State<Tugas1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
       body: GestureDetector(
         onTap: FocusScope.of(context).unfocus,
         child: Center(
@@ -86,6 +87,7 @@ class _Tugas1State extends State<Tugas1> {
                         controller: myController,
                         keyboardType: TextInputType.number,
                         decoration: const InputDecoration(
+                          fillColor: Colors.black,
                           hintText: 'Masukkan Angka',
                         ),
                       ),
@@ -116,28 +118,6 @@ class _Tugas1State extends State<Tugas1> {
                       onPressed: check,
                       child: const Text(
                         'Cek',
-                        style: TextStyle(color: Colors.black),
-                      ),
-                    ),
-                  ),
-                ),
-
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 10.0),
-                  child: SizedBox(
-                    width: 300,
-                    child: OutlinedButton(
-                      onPressed: () {
-                        Navigator.pop(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const Tugas1()));
-                      },
-                      style: OutlinedButton.styleFrom(
-                          backgroundColor:
-                              const Color.fromARGB(255, 255, 98, 98)),
-                      child: const Text(
-                        'Kembali',
                         style: TextStyle(color: Colors.black),
                       ),
                     ),
